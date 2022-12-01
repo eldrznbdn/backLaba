@@ -4,7 +4,7 @@ import com.zinabadinov.domain.SoldEnergyEntity;
 import com.zinabadinov.exception.ItemNotFound;
 import com.zinabadinov.repository.SoldEnergyRepository;
 import com.zinabadinov.service.SoldEnergyService;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

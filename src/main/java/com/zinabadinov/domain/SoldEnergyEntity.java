@@ -1,10 +1,13 @@
 package com.zinabadinov.domain;
 
-import jakarta.persistence.*;
+import lombok.Data;
+
+import javax.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Data
 @Entity
 @Table(name = "sold_energy", schema = "db_jdbclaba4", catalog = "")
 public class SoldEnergyEntity {

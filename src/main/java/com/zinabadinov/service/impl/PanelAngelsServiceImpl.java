@@ -4,7 +4,7 @@ import com.zinabadinov.domain.PanelAngelsEntity;
 import com.zinabadinov.exception.ItemNotFound;
 import com.zinabadinov.repository.PanelAngelsRepository;
 import com.zinabadinov.service.PanelAngelsService;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

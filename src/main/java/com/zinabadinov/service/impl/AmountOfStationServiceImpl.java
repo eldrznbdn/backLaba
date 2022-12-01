@@ -4,10 +4,10 @@ import com.zinabadinov.domain.AmountOfStationEntity;
 import com.zinabadinov.exception.ItemNotFound;
 import com.zinabadinov.repository.AmountOfStationRepository;
 import com.zinabadinov.service.AmountOfStationService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service

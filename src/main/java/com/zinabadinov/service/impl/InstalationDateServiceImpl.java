@@ -4,7 +4,7 @@ import com.zinabadinov.domain.InstalationDateEntity;
 import com.zinabadinov.exception.ItemNotFound;
 import com.zinabadinov.repository.InstalationDateRepository;
 import com.zinabadinov.service.InstalationDateService;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

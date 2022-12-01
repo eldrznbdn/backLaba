@@ -1,9 +1,11 @@
 package com.zinabadinov.domain;
 
-import jakarta.persistence.*;
+import lombok.Data;
+
+import javax.persistence.*;
 
 import java.util.Objects;
-
+@Data
 @Entity
 @Table(name = "battary_charge", schema = "db_jdbclaba4", catalog = "")
 public class BattaryChargeEntity {

@@ -1,10 +1,13 @@
 package com.zinabadinov.domain;
 
-import jakarta.persistence.*;
+import lombok.Data;
+
+import javax.persistence.*;
 
 import java.sql.Date;
 import java.util.Objects;
 
+@Data
 @Entity
 @Table(name = "instalation_date", schema = "db_jdbclaba4", catalog = "")
 public class InstalationDateEntity {

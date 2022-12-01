@@ -4,7 +4,7 @@ import com.zinabadinov.domain.ElectricityPriceEntity;
 import com.zinabadinov.exception.ItemNotFound;
 import com.zinabadinov.repository.ElectricityPriceRepository;
 import com.zinabadinov.service.ElectricityPriceService;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
