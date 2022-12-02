@@ -1,6 +1,7 @@
 package com.zinabadinov.controller;
 
 import com.zinabadinov.domain.AmountOfStationEntity;
+import com.zinabadinov.domain.InstalationDateEntity;
 import com.zinabadinov.domain.OwnerSEntity;
 import com.zinabadinov.dto.AmountOfStationDto;
 import com.zinabadinov.dto.OwnerSDto;
@@ -45,6 +46,30 @@ public class OwnerSController {
         OwnerSEntity content = ownerSService.findById(id);
         OwnerSDto temp = ownerSDtoAssembler.toModel(content);
         return new ResponseEntity<>(temp, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer id) {
+        ownerSService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateItem(@RequestBody OwnerSEntity item, @PathVariable Integer id) {
+        ownerSService.update(id, item);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/new-procedure/{name}")
+    public ResponseEntity<?> insertUsingProcedure(@PathVariable String name,@PathVariable String surname) {
+        ownerSService.insertIntoOwner(name,surname);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/procedure")
+    public ResponseEntity<?> insert10Rows() {
+        ownerSService.insertIntoOwner10Rows();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }

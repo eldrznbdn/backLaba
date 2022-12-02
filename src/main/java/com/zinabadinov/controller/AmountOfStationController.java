@@ -45,4 +45,16 @@ public class AmountOfStationController {
         return new ResponseEntity<>(temp, HttpStatus.OK);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer id) {
+        amountOfStationService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateItem(@RequestBody AmountOfStationEntity item, @PathVariable Integer id) {
+        amountOfStationService.update(id, item);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

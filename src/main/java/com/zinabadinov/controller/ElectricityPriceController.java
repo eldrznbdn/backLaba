@@ -1,6 +1,7 @@
 package com.zinabadinov.controller;
 
 
+import com.zinabadinov.domain.BattaryChargeEntity;
 import com.zinabadinov.domain.ElectricityPriceEntity;
 import com.zinabadinov.dto.assembler.ElectricityPriceDtoAssembler;
 import com.zinabadinov.dto.ElectricityPriceDto;
@@ -43,6 +44,24 @@ public class ElectricityPriceController {
         ElectricityPriceEntity content = electricityPriceService.findById(id);
         ElectricityPriceDto temp = electricityPriceDtoAssembler.toModel(content);
         return new ResponseEntity<>(temp, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer id) {
+        electricityPriceService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateItem(@RequestBody ElectricityPriceEntity item, @PathVariable Integer id) {
+        electricityPriceService.update(id, item);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/sum-money")
+    public ResponseEntity<Integer> sumMoney() {
+        var content = electricityPriceService.sumMoney();
+        return new ResponseEntity<>(content, HttpStatus.OK);
     }
 
 

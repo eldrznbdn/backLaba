@@ -1,5 +1,6 @@
 package com.zinabadinov.controller;
 
+import com.zinabadinov.domain.ElectricityPriceEntity;
 import com.zinabadinov.domain.InstalationDateEntity;
 import com.zinabadinov.dto.assembler.InstalationDateDtoAssembler;
 import com.zinabadinov.dto.InstalationDateDto;
@@ -43,5 +44,17 @@ public class InstalationDateController {
         InstalationDateEntity content = instalationDateService.findById(id);
         InstalationDateDto temp = instalationDateDtoAssembler.toModel(content);
         return new ResponseEntity<>(temp, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer id) {
+        instalationDateService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateItem(@RequestBody InstalationDateEntity item, @PathVariable Integer id) {
+        instalationDateService.update(id, item);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

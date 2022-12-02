@@ -1,6 +1,7 @@
 package com.zinabadinov.controller;
 
 import com.zinabadinov.domain.AmountOfStationEntity;
+import com.zinabadinov.domain.SolarStationEntity;
 import com.zinabadinov.domain.SoldEnergyEntity;
 import com.zinabadinov.dto.AmountOfStationDto;
 import com.zinabadinov.dto.SolarStationDto;
@@ -47,5 +48,17 @@ public class SoldEnergyController {
         SoldEnergyEntity content = soldEnergyService.findById(id);
         SoldEnergyDto temp = soldEnergyDtoAssembler.toModel(content);
         return new ResponseEntity<>(temp, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer id) {
+        soldEnergyService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateItem(@RequestBody SoldEnergyEntity item, @PathVariable Integer id) {
+        soldEnergyService.update(id, item);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

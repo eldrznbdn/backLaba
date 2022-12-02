@@ -51,4 +51,15 @@ public class OwnerSServiceImpl implements OwnerSService {
                 .orElseThrow(() -> new ItemNotFound(id));
         ownerSRepository.delete(ownerSEntity);
     }
+
+
+    @Override
+    public void insertIntoOwner(String name,String surname) {
+        ownerSRepository.insertIntoOwner(name,surname);
+    }
+
+    @Override
+    public void insertIntoOwner10Rows() {
+        ownerSRepository.insertIntoOwner10Rows();
+    }
 }

@@ -1,6 +1,7 @@
 package com.zinabadinov.controller;
 
 import com.zinabadinov.domain.AmountOfStationEntity;
+import com.zinabadinov.domain.PanelAngelsEntity;
 import com.zinabadinov.domain.PanelEntity;
 import com.zinabadinov.dto.AmountOfStationDto;
 import com.zinabadinov.dto.PanelDto;
@@ -45,6 +46,18 @@ public class PanelController {
         PanelEntity content = panelService.findById(id);
         PanelDto temp = panelDtoAssembler.toModel(content);
         return new ResponseEntity<>(temp, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer id) {
+        panelService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateItem(@RequestBody PanelEntity item, @PathVariable Integer id) {
+        panelService.update(id, item);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

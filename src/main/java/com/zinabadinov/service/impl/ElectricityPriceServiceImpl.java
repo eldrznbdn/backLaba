@@ -51,4 +51,9 @@ public class ElectricityPriceServiceImpl implements ElectricityPriceService {
                 .orElseThrow(() -> new ItemNotFound(id));
         electricityPriceRepository.delete(electricityPriceEntity);
     }
+
+    @Override
+    public Integer sumMoney() {
+        return electricityPriceRepository.sumMoney();
+    }
 }

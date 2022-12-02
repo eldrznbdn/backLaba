@@ -1,5 +1,6 @@
 package com.zinabadinov.controller;
 
+import com.zinabadinov.domain.AmountOfStationEntity;
 import com.zinabadinov.domain.BattaryChargeEntity;
 import com.zinabadinov.dto.assembler.BattaryChargeDtoAssembler;
 import com.zinabadinov.dto.BattaryChargeDto;
@@ -43,6 +44,18 @@ public class BattaryChargeController {
         BattaryChargeEntity content = battaryChargeService.findById(id);
         BattaryChargeDto temp = battaryChargeDtoAssembler.toModel(content);
         return new ResponseEntity<>(temp, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteItem(@PathVariable Integer id) {
+        battaryChargeService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateItem(@RequestBody BattaryChargeEntity item, @PathVariable Integer id) {
+        battaryChargeService.update(id, item);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
